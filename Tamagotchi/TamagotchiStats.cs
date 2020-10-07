@@ -15,8 +15,8 @@ namespace Tamagotchi
 
         public void Feed()
         {
-            // Feed() sänker Hunger
-            int randomFeed = generator.Next(0, 3);
+            // Feed() sänker Hunger med 1-3 snäpp
+            int randomFeed = generator.Next(1, 3);
             hunger -= randomFeed;
 
         }
@@ -24,6 +24,8 @@ namespace Tamagotchi
         public void Hi()
         {
             // Hi() skriver ut ett slumpat ord från words, och anropar ReduceBoredom.
+
+            // plockar en random position i listan från plats 0 till den högsta
             int randomWord = generator.Next(0, words.Count);
 
             string tamagotchiTalk = words[randomWord];
@@ -36,8 +38,11 @@ namespace Tamagotchi
         public void Teach()
         {
             // Teach(string word) lägger till ett ord i words, och anropar ReduceBoredom.
+
             System.Console.WriteLine("Vad för ord ska din Tamagotchi lära sig?");
             string inputWord = Console.ReadLine();
+
+            // lägger till inputen till listan
             words.Add(inputWord);
 
             ReduceBoredom();
@@ -45,7 +50,7 @@ namespace Tamagotchi
 
         public void Tick()
         {
-            // Tick() ökar hunger och boredom, och om någon av dem kommer över 10 så blir isAlive false.
+            // Tick() ökar hunger och boredom
             boredom++;
             hunger++;
         }
@@ -54,6 +59,7 @@ namespace Tamagotchi
         {
             // PrintStats() skriver ut nuvarande hunger och bredom, och meddelar också huruvida tamagotchin lever.
 
+            // gör så man inte kan overfeeda eller låta den ha för kul. detta är skolarbete så det ska inte vara alldeles för kul. 
             if (hunger < 0)
             {
                 hunger = 0;
@@ -64,6 +70,7 @@ namespace Tamagotchi
                 boredom = 0;
             }
 
+            // ifall tamagotchin har över 10 på sina stats så får man meddelandet att den dog
             if (hunger > 10 || boredom > 10)
             {
                 System.Console.WriteLine("Din tamagotchi dog!");
@@ -79,6 +86,8 @@ namespace Tamagotchi
 
         public bool GetAlive()
         {
+            // här kollar vi ifall tamagotchin har över 10 på något av sina stats. 
+            // isåfall så blir isAlive false och gameIsRunning i program.cs blir också false
             if (hunger > 10 || boredom > 10)
             {
                 return isAlive = false;

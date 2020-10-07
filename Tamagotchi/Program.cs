@@ -16,6 +16,7 @@ namespace Tamagotchi
             System.Console.WriteLine("Din tamagotchi heter nu " + t1.name);
             Thread.Sleep(2000);
 
+            // boolar game is running
             bool gameIsRunning = true;
             while (gameIsRunning)
             {
@@ -30,6 +31,7 @@ namespace Tamagotchi
                 }
                 else
                 {
+                    // boolar correctInput så man skriver A-D
                     bool correctInput = false;
                     while (!correctInput)
                     {
@@ -71,7 +73,7 @@ namespace Tamagotchi
                         }
                     }
 
-
+                    // kör en tick efter att spelaren gjort ett accepterat val (A-D)
                     t1.Tick();
                 }
             }
