@@ -11,7 +11,7 @@ namespace Tamagotchi
 
             Tamagotchi t1 = new Tamagotchi();
             System.Console.WriteLine("Vad vill du döpa din Tamagotchi till?");
-            t1.name = Console.ReadLine();
+            t1.name = Console.ReadLine(); 
 
             System.Console.WriteLine("Din tamagotchi heter nu " + t1.name);
             Thread.Sleep(2000);
