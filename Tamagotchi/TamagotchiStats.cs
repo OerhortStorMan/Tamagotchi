@@ -16,23 +16,17 @@ namespace Tamagotchi
         public void Feed()
         {
             // Feed() sänker Hunger
-            hunger -= 3;
+            int randomFeed = generator.Next(0, 3);
+            hunger -= randomFeed;
 
         }   
 
-        // när jag vill att tamagotchin ska prata 
-        // så finns det två sätt att göra det, 
-        // antingen så är det en writeline med vad 
-        // den säger i metoden nedan eller så skapar 
-        // jag en public string som jag anropar på i main. 
-        // i Teach() så gör jag på det andra sättet
-        // public string tamagotchiTalk = "";
         public void Hi()
         {
             // Hi() skriver ut ett slumpat ord från words, och anropar ReduceBoredom.
-            int random = generator.Next(0, words.Count);
+            int randomWord = generator.Next(0, words.Count);
 
-            string tamagotchiTalk = words[random];
+            string tamagotchiTalk = words[randomWord];
 
             System.Console.WriteLine(tamagotchiTalk + ", sa " + name);
 
