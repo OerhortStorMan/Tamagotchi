@@ -14,14 +14,15 @@ namespace Tamagotchi
             t1.name = Console.ReadLine(); 
 
             System.Console.WriteLine("Din tamagotchi heter nu " + t1.name);
-            Thread.Sleep(2000);
-            Console.Clear();
-            
+            Thread.Sleep(2000);            
 
             bool gameIsRunning = true;
             while (gameIsRunning)
             {
+                Console.Clear();
                 t1.PrintStats();
+                System.Console.WriteLine();
+
                 t1.GetAlive();
                 if (t1.GetAlive() == false)
                 {
@@ -29,19 +30,19 @@ namespace Tamagotchi
                 }
                 else
                 {
-                    System.Console.WriteLine("Vad vill du att din tamagotchi ska göra?:");
+                    bool correctInput = false;
+                    while (!correctInput)
+                    {
+                        System.Console.WriteLine("Vad vill du att din tamagotchi ska göra?:");
                     System.Console.WriteLine(@"
-                    [A] Lära den ett nytt ord
-                    [B] Hälsa på den
-                    [C] Mata den
-                    [D] Göra ingenting        
+    [A] Lära den ett nytt ord
+    [B] Hälsa på den
+    [C] Mata den
+    [D] Göra ingenting        
                     ");
                     string input = Console.ReadLine();
                     input = input.ToUpper(); 
 
-                    bool correctInput = false;
-                    while (!correctInput)
-                    {
                         if (input == "A")
                         {
                             t1.Teach();
@@ -50,6 +51,7 @@ namespace Tamagotchi
                         else if (input == "B")
                         {
                             t1.Hi();
+                            Thread.Sleep(1750);
                             correctInput = true;
                         }
                         else if (input == "C")
@@ -64,7 +66,8 @@ namespace Tamagotchi
                         }
                         else
                         {
-                            System.Console.WriteLine("Vänligen skriv en riktig input");
+                            Console.Clear();
+                            System.Console.WriteLine("\n Vänligen skriv en riktig input");
                         }
                     }
                                       
