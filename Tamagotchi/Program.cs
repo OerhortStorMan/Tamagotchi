@@ -11,10 +11,10 @@ namespace Tamagotchi
 
             Tamagotchi t1 = new Tamagotchi();
             System.Console.WriteLine("Vad vill du döpa din Tamagotchi till?");
-            t1.name = Console.ReadLine(); 
+            t1.name = Console.ReadLine();
 
             System.Console.WriteLine("Din tamagotchi heter nu " + t1.name);
-            Thread.Sleep(2000);            
+            Thread.Sleep(2000);
 
             bool gameIsRunning = true;
             while (gameIsRunning)
@@ -34,20 +34,20 @@ namespace Tamagotchi
                     while (!correctInput)
                     {
                         System.Console.WriteLine("Vad vill du att din tamagotchi ska göra?:");
-                    System.Console.WriteLine(@"
+                        System.Console.WriteLine(@"
     [A] Lära den ett nytt ord
     [B] Hälsa på den
     [C] Mata den
     [D] Göra ingenting        
                     ");
-                    string input = Console.ReadLine();
-                    input = input.ToUpper(); 
+                        string input = Console.ReadLine();
+                        input = input.ToUpper();
 
                         if (input == "A")
                         {
                             t1.Teach();
                             correctInput = true;
-                        } 
+                        }
                         else if (input == "B")
                         {
                             t1.Hi();
@@ -70,7 +70,7 @@ namespace Tamagotchi
                             System.Console.WriteLine("\n Vänligen skriv en riktig input");
                         }
                     }
-                                      
+
 
                     t1.Tick();
                 }

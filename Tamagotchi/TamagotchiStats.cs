@@ -19,7 +19,7 @@ namespace Tamagotchi
             int randomFeed = generator.Next(0, 3);
             hunger -= randomFeed;
 
-        }   
+        }
 
         public void Hi()
         {
@@ -39,7 +39,7 @@ namespace Tamagotchi
             System.Console.WriteLine("Vad för ord ska din Tamagotchi lära sig?");
             string inputWord = Console.ReadLine();
             words.Add(inputWord);
-            
+
             ReduceBoredom();
         }
 
