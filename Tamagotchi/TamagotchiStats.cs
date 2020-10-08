@@ -81,7 +81,7 @@ namespace Tamagotchi
             // ifall tamagotchin har över 10 på sina stats så får man meddelandet att den dog
             if (hunger > 10 || boredom > 10)
             {
-                System.Console.WriteLine("Din tamagotchi dog!");
+                System.Console.WriteLine(name + " dog!");
             }
             else
             {
@@ -109,7 +109,7 @@ namespace Tamagotchi
         void ReduceBoredom()
         {
             // ReduceBoredom() sänker boredom.
-            boredom -= 2;
+            boredom -= 3;
 
         }
 
