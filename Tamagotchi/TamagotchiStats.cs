@@ -18,7 +18,7 @@ namespace Tamagotchi
         public void Feed()
         {
             // Feed() sänker Hunger med 1-3 snäpp
-            int randomFeed = generator.Next(1, 3);
+            int randomFeed = generator.Next(1, 4);
             hunger -= randomFeed;
 
         }
