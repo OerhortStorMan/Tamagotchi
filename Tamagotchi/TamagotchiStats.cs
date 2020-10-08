@@ -5,10 +5,12 @@ namespace Tamagotchi
 {
     public class Tamagotchi
     {
-        int hunger = 0;
-        int boredom = 0;
+        int hunger = 5;
+        int boredom = 5;
         List<string> words = new List<string>();
 
+        // här så skapar jag ett start ord så att det inte blir error 
+        // om man försöker hälsa på den innan man lärt den ett ord
         bool isAlive;
         Random generator = new Random();
         public string name = "";
@@ -21,16 +23,22 @@ namespace Tamagotchi
 
         }
 
+        bool playedBefore = false;
         public void Hi()
         {
             // Hi() skriver ut ett slumpat ord från words, och anropar ReduceBoredom.
+            if (!playedBefore)
+            {
+                words.Add("Hej");
+                playedBefore = true;
+            }
 
             // plockar en random position i listan från plats 0 till den högsta
             int randomWord = generator.Next(0, words.Count);
 
-            string tamagotchiTalk = words[randomWord];
+            string tamagotchiWord = words[randomWord];
 
-            System.Console.WriteLine(tamagotchiTalk + ", sa " + name);
+            System.Console.WriteLine(tamagotchiWord + ", sa " + name);
 
             ReduceBoredom();
         }
@@ -39,7 +47,7 @@ namespace Tamagotchi
         {
             // Teach(string word) lägger till ett ord i words, och anropar ReduceBoredom.
 
-            System.Console.WriteLine("Vad för ord ska din Tamagotchi lära sig?");
+            System.Console.WriteLine("Vad för ord eller fras ska din Tamagotchi lära sig?");
             string inputWord = Console.ReadLine();
 
             // lägger till inputen till listan
